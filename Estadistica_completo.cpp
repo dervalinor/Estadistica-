@@ -26,6 +26,9 @@ void ask(){
   cout << "\n";
   for(int i = 0; i < n; i ++){
     cout<< "Elemento " << i << " : "; cin >> arreglo[i];
+    if(i == 5){
+      cout << "\n";
+    }
   }
 
   ordenamiento(arreglo, n);

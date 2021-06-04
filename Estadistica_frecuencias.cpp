@@ -6,6 +6,7 @@ using namespace std;
 void data_enter();
 void frecuencia_r(double vektor[], int, double N);
 void porcentaje(double vektor[], int, double N);
+void diagrama_circular(double vektor[], int n, int N);
 
 int n;
 double vektor[100], N = 0;
@@ -37,6 +38,11 @@ void data_enter(){
 
 	cout << "Percentage: " << endl;
 	porcentaje(vektor, n, N);
+
+	cout << "\n";
+  cout << "Diagram circular" << endl;
+  diagrama_circular(vektor, n, N);
+
 }
 
 void frecuencia_r(double vektor[], int n, double N){
@@ -51,4 +57,10 @@ void porcentaje(double vektor[], int n, double N){
 	{
 		cout << "Percentage: " << i << ": " << (vektor[i]*100)/N << endl;
 	}
+}
+
+void diagrama_circular(double vektor[], int n, int N){
+  for(int i = 0; i < n; i ++){
+    cout << "Angle for frequency " << vektor[i] << " : " << vektor[i]<< "*360/"<< N << " = " << vektor[i]*360/N << endl;
+  } 
 }
