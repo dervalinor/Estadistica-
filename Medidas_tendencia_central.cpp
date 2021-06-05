@@ -4,10 +4,10 @@
 using namespace std;
 
 void ask();
-void ordenamiento(double arreglo[1000], int);
+void ordenamiento(double arreglo[100], int);
 double media(double arreglo[], int);
 double mediana(double arreglo[], int);
-double moda(double arreglo[], int);
+void moda(double arreglo[], int);
 bool numero_impar(int n);
 
 int main(){
@@ -19,15 +19,17 @@ int main(){
 void ask(){
   double arreglo[100];
   int n;
-
-  for(int i = 0; i <= 0; i ++){
+  
+  cout << "Tamaño de los datos: "; cin >> n;
+  for(int i = 0; i < n; i ++){
     cout << "Element " << i + 1 << ": "; cin >> arreglo[i];
   }
 
   ordenamiento(arreglo, n);
+
 }
 
-void ordenamiento(double arreglo[1000], int n){
+void ordenamiento(double arreglo[100], int n){
 
   double aux;
 
@@ -45,10 +47,15 @@ void ordenamiento(double arreglo[1000], int n){
   for(int i = 0; i < n; i ++){
     cout << arreglo[i] << " ";
   }
-
   cout << "\n";
   
-  media(arreglo, n);
+  cout << "\nMedia: " << endl;
+  cout << media(arreglo, n) << endl;
+  cout << "\nModa: " << endl;
+  moda(arreglo, n);
+  cout << "\nMediana: " << endl;
+  cout << "Mediana: " << mediana(arreglo, n) << endl;
+
 }
 
 
@@ -57,8 +64,19 @@ double media(double arreglo[100], int n){
 
   for(int i = 0; i < n; i ++){
     med = med + arreglo[i];
+    if(i == 0){
+      cout << "media = ( ";
+    }
+    if(i == n - 1){
+      cout << arreglo[i] << ")/" << n;
+    }
+
+    else {
+      cout << arreglo[i] << " + ";
+    }
   }
   
+  cout << "\nmedia = " << med << "/" << n << " = ";
   MED = med/n;
 
   return MED;
@@ -67,29 +85,39 @@ double media(double arreglo[100], int n){
 
 
 double mediana(double arreglo[100], int n){//create a function for find the odd number
-  double N = 0, D = 0;
+  int N = 0, D = 0;
+  double J, K;
   if(numero_impar(n) == true){
-    N = (n - 1)/2
-    D = arreglo[N + 1]
-  } else {
+    N = (n - 1)/2;
+    D = arreglo[N];
+  } else if (numero_impar(n) == false) {
     N = n/2;
-    D = (arreglo[N] + arreglo[N + 1])/2;
+    J = arreglo[N - 1];//remember count the position of zero, no one
+    K = arreglo[N];
+    D = (J + K)/2;
   }
 
   return D;
 }
 
-double moda(double arreglo[100], int n){
-
+void moda(double arreglo[100], int n){
+  int m = 1;//lo minimo que se puede repetir un element es una sola vez
+  cout << "\n";
+  for(int i = 1; i < n + 1; i ++){
+     if(arreglo[i - 1] == arreglo[i]){
+      m++;
+    } else if(arreglo[i - 1] != arreglo[i]){
+      cout << "Element " << arreglo[i - 1] << " se repite: " << m << endl;
+      m = 1;
+    }
+  }  
 }
 
 bool numero_impar(int n){
-  double band;
-  for(int k = 0; k < 30; k ++){//make for number infinite of cases
-    if(n == 2*n + 1){
+  bool band = false;
+  for(int k = 0; k < 10; k ++){//make for number infinite of cases
+    if(n == 2*k + 1){
       band = true;
-    } else {
-      band = false;
     }
   }
 
