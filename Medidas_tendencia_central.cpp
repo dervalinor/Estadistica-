@@ -48,7 +48,6 @@ void ordenamiento(double arreglo[100], int n){
     cout << arreglo[i] << " ";
   }
   cout << "\n";
-  
   cout << "\nMedia: " << endl;
   cout << media(arreglo, n) << endl;
   cout << "\nModa: " << endl;
@@ -85,7 +84,8 @@ double media(double arreglo[100], int n){
 
 
 double mediana(double arreglo[100], int n){//create a function for find the odd number
-  int N = 0, D = 0;
+  int N = 0;
+  double D = 0; //for obtain values more precision
   double J, K;
   if(numero_impar(n) == true){
     N = (n - 1)/2;
@@ -94,6 +94,7 @@ double mediana(double arreglo[100], int n){//create a function for find the odd 
     N = n/2;
     J = arreglo[N - 1];//remember count the position of zero, no one
     K = arreglo[N];
+    cout << "Mediana = (" << J << " + " << K <<")/" << 2 << " = ";
     D = (J + K)/2;
   }
 
@@ -115,7 +116,7 @@ void moda(double arreglo[100], int n){
 
 bool numero_impar(int n){
   bool band = false;
-  for(int k = 0; k < 10; k ++){//make for number infinite of cases
+  for(int k = 0; k < 15; k ++){//make for number infinite of cases
     if(n == 2*k + 1){
       band = true;
     }
