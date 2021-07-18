@@ -5,8 +5,13 @@
 using namespace std;
 
 void ask();
+<<<<<<< HEAD
 void Ordenar(double vektor[], int n);
 void Intervalos(double vektor[], int n);
+=======
+void Intervalos(double vektor[], int n);
+void Ordenar(double vektor[], int n);
+>>>>>>> 3b4c42c4af09eec24b904d6e0ce2d9630d8cab40
 double Redondear(double);
 void frecuencia(double vektor[], double inicial[], double finall[], int k, int n);
 void numero_intervalo(double vektor[], int n);
@@ -33,9 +38,19 @@ void ask(){
   Ordenar(vektor, n);
 }
 
+<<<<<<< HEAD
 void Ordenar(double vektor[], int n){
   int N; 
   double aux;
+=======
+void Intervalos(){
+  //first ordered the array and after calculate the range
+}
+
+void Ordenar(double vektor[], int n){
+  int N, t = 0; 
+  double aux, a, b;
+>>>>>>> 3b4c42c4af09eec24b904d6e0ce2d9630d8cab40
   N = n - 1;
   for(int i = 0; i < N; i ++){
     for(int j = 0; j < N; j ++){
@@ -134,6 +149,7 @@ void frecuencia(double vektor[], double inicial[], double finall[], int k, int n
     }
   }
 
+<<<<<<< HEAD
   numero_intervalo(vektor, n);
 }
 
@@ -152,4 +168,13 @@ void numero_intervalo(double vektor[], int n){
     }
     cout << "Frecuencia en el intervalo " << a << " - " << b << " : " << l << endl;
   }
+=======
+}
+
+void numero_intervalo(double vektor[], int n){
+ int opt;
+
+  while(opt == 1) 
+ 
+>>>>>>> 3b4c42c4af09eec24b904d6e0ce2d9630d8cab40
 }
